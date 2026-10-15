@@ -11,6 +11,6 @@ export const createStudent = async(student) =>{
 }
 
 export const updateStudent = async(student) => {
-    const updateStudent = await bookModel.update(student);
-    return updateStudent;
+    const updatedStudent = await studentModel.update(student);
+    return updatedStudent;
 }
