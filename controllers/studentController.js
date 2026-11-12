@@ -17,7 +17,7 @@ export const createStudent = async (req, res) =>{
         });
     }catch(e){
         console.log(e);
-        res.status(e.stausCode).json({
+        res.status(e.statusCode || 500).json({
             error: e.message
         });
     }

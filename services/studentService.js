@@ -6,6 +6,21 @@ export const fetchAllStudent = async() =>{
     return student;
 }
 
+const doesStudentExist = async (student) =>{
+    let existing;
+    if(Object.hasOwn(student, "id")){
+        existing = await studentModel.findStudentById(student.id)
+    }else{
+        existing = await studentModel.findStudentByNameAndSrcodeAndProgram(student);
+    }
+    
+    if(existing.length > 0){
+        return true;
+    }
+
+    return false;
+}
+
 export const createStudent = async(student) =>{
     if(!student.name || !student.srcode || !student.program){
         throw new ValidationError(404, 'Name and srcode and program is required!');

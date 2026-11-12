@@ -7,8 +7,8 @@ export const fetchAllStudent = async () => {
 }
 
 export const findStudentByNameAndSrcodeAndProgram = async(student) =>{
-    const [rows] = await pool.query("SELECT * FROM student WHERE name=? AND srcode=? AND author=?",
-        [student.name, student.srcode, student.author]
+    const [rows] = await pool.query("SELECT * FROM student WHERE name=? AND srcode=? AND program=?",
+        [student.name, student.srcode, student.program]
     );
     return rows;
 };
