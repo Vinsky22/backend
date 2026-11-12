@@ -6,7 +6,6 @@ export const fetchAllBooks = async (req, res) =>{
 }
 
 export const createBook = async (req, res) =>{
-    console.log(req.body)
     const {name, author} = req.body;
     const book = {name, author};
 
@@ -18,8 +17,8 @@ export const createBook = async (req, res) =>{
         });
     }catch(e){
         console.log(e);
-        res.status(e.statusCode).json({
-            error: e.message
+        res.status(e.statusCode || 500).json({
+            error: (e.message || "Internal Server Error")
         });
     }
 }
